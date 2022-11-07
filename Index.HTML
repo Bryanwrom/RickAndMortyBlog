@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido al blog de Rick y Morty</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./Funciones/Estilos.css" />
+    <link
+    rel="shortcut icon"
+    href="Funciones/img/icon.png"
+    type="image/x-icon"
+  />
+  </head>
+  <body>
+    <!-- #region ENCABEZADO -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo">
+          <img
+            src="Funciones/img/icon.png"
+            alt=""
+            class="nav__logo-img"
+          />
+          Rick y Morty Blog
+        </a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">Inicio</a>
+            </li>
+            <li class="nav__item">
+              <a href="#Personajes" class="nav__link">Personajes</a>
+            </li>
+          </ul>
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
+          <img src="Funciones/img/nav-img.png" alt="" class="nav__img" />
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-grid-alt"></i>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="home container" id="home">
+        <div class="swiper home-swiper">
+          <div class="swiper-wrapper">
+            <section class="swiper-slide">
+              <div class="home__content grid">
+                <div class="home__group">
+                  <img
+                    src="Funciones/img/RickIcon.png"
+                    alt=""
+                    class="home__img"
+                  />
+                  <div class="home__indicator"></div>
+
+                  <div class="home__details-img">
+                    <h4 class="home__details-title">Rick Sanchez (C-137)</h4>
+                    <span class="home__details-subtitle">
+                      El Rick más Rick.</span
+                    >
+                  </div>
+                </div>
+
+                <div class="home__data">
+                  <h3 class="home__subtitle">La streamer #1</h3>
+                  <h1 class="home__title">
+                    Feliz dia de muertos <br />
+
+                    Me das mi Personajes? <br />
+                  </h1>
+                  <p class="home__description">
+                    Mi nombre es Moonie y por el poder del prisma lunar
+                    hare que me den subs
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section class="swiper-slide">
+              <div class="home__content grid">
+                <div class="home__group">
+                  <img
+                    src="Funciones/img/RickIcon.png"
+                    alt=""
+                    class="home__img"
+                  />
+                  <div class="home__indicator"></div>
+
+                  <div class="home__details-img">
+                    <h4 class="home__details-title">Rick Sanchez (C-137)</h4>
+                    <span class="home__details-subtitle"
+                      >El Rick más Rick de todos.</span
+                    >
+                  </div>
+                </div>
+
+                <div class="home__data">
+                  <h3 class="home__subtitle">Que sigues mirando?</h3>
+                  <h1 class="home__title">
+                    Y tu ofrenda? <br />
+
+                    Espero que este lista <br />
+                  </h1>
+                  <p class="home__description">
+                    Recuerda no dejar nuestras tradiciones morir, Feliz 
+                    dia de muertos espero que te guste el pan de muerto
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <!--Acerca de-->
+      <section class="section Personajes" id="Personajes">
+        <div class="Personajes__container container grid">
+          <div class="Personajes__data">
+            <img src="Funciones/img/florescempasuchil.png" alt="" class="Personajes__img" />
+            <h2 class="section__title Personajes__title">
+              Personajes
+              <br />
+              Para Moonie:
+            </h2>
+            <p class="Personajes__description">
+                            
+            </p>
+            <img src="Funciones/img/florescempasuchil.png" alt="" class="Personajes__img" />
+          </div>
+          <img src="Funciones/img/MoonieSad.png" alt="" class="Personajes__img" />
+        </div>
+      </section>
+      
+    </main>
+      <img src="Funciones/img/footer1-img.png" alt="" class="footer__img-one" />
+      <img src="Funciones/img/footer2-img.png" alt="" class="footer__img-two" />
+    </footer>
+    <!-- #endregion -->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+    </a>
+
+    <!--Scroll para que se revelen los elementos de forma suave-->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+    <!--Deslizar elementos en una lista-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="./Funciones/js/main.js"></script>
+  </body>
+</html>
