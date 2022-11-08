@@ -1,4 +1,3 @@
-/*
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
   navClose = document.getElementById("nav-close");
@@ -19,22 +18,6 @@ function linkAction() {
   navMenu.classList.remove("show-menu");
 }
 navLink.forEach((item) => item.addEventListener("click", linkAction));
-
-//SWIPER
-let homeSwiper = new Swiper(".Inicio-swiper", {
-  spaceBetween: 30,
-  loop: "true",
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-let newSwiper = new Swiper(".new-swiper", {
-  centeredSlides: true,
-  slidesPerView: "auto",
-  loop: "true",
-  spaceBetween: 16,
-});
 
 //Scroll up
 function scrollUp() {
@@ -76,4 +59,3 @@ sr.reveal(`.category__data, .trick__content, .footer__content`, {
 });
 sr.reveal(`.about__data, .discount__img`, { origin: "left" });
 sr.reveal(`.about__img, .discount__data`, { origin: "right" });
-*/
