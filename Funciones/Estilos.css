@@ -1,11 +1,10 @@
-/*=============== GOOGLE FONTS ===============*/
+/*=============== Fuente ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
 
-/*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
 
-  /*========== Colors ==========*/
+  /*========== Colores ==========*/
   --hue: 14;
   --first-color: hsl(var(--hue), 91%, 54%);
   --first-color-alt: hsl(var(--hue), 91%, 50%);
@@ -13,11 +12,11 @@
   --text-color: hsl(var(--hue), 4%, 95%);
   --text-color-light: hsl(var(--hue), 4%, 55%);
 
-  /*Green gradient*/
+  /*Gradiante fondo*/
   --body-color: linear-gradient(90deg, hsl(0, 0%, 5%) 0%, hsl(115, 88%, 35%) 100%);
   --container-color: linear-gradient(136deg, hsl(120, 1%, 15%) 0%, hsl(0, 0%, 3%) 100%);
 
-  /*========== Font and typography ==========*/
+  /*========== Fuente y topografia ==========*/
   --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 2rem;
   --h1-font-size: 1.5rem;
@@ -27,12 +26,12 @@
   --small-font-size: .813rem;
   --smaller-font-size: .75rem;
 
-  /*========== Font weight ==========*/
+  /*========== Tamaño de la fuente ==========*/
   --font-medium: 500;
   --font-semi-bold: 600;
   --font-black: 900;
 
-  /*========== Margenes Bottom ==========*/
+  /*========== Margenes del boton ==========*/
   --mb-0-25: .25rem;
   --mb-0-5: .5rem;
   --mb-0-75: .75rem;
@@ -41,12 +40,10 @@
   --mb-2: 2rem;
   --mb-2-5: 2.5rem;
 
-  /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
 }
 
-/* Responsive typography */
 @media screen and (min-width: 992px) {
   :root {
     --biggest-font-size: 4rem;
@@ -59,7 +56,7 @@
   }
 }
 
-/*=============== BASE ===============*/
+/*=============== Base ===============*/
 *{
   box-sizing: border-box;
   padding: 0;
@@ -108,7 +105,7 @@ button{
   font-size: var(--normal-font-size);
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+/*=============== Clases ===============*/
 .section{
   padding: 4.5rem 0 2rem;
 }
@@ -131,10 +128,10 @@ button{
 }
 
 .main{
-  overflow: hidden; /*For animation*/
+  overflow: hidden; 
 }
 
-/*=============== HEADER ===============*/
+/*=============== Encabezado ===============*/
 .header{
   width: 100%;
   background: var(--body-color); 
@@ -144,7 +141,7 @@ button{
   z-index: var(--z-fixed);
 }
 
-/*=============== NAV ===============*/
+/*=============== Nav ===============*/
 .nav{
   height: var(--header-height);
   display: flex;
@@ -226,7 +223,7 @@ button{
   top: 0;
 }
 
-/* Change background header */
+/* Cambiar el encabezado */
 .scroll-header{
   background: var(--container-color);
 }
@@ -247,24 +244,24 @@ button{
   border-radius: 50%;
 }
 
-/*=============== HOME ===============*/
-.home__content{
+/*=============== Inicio ===============*/
+.Inicio__content{
   row-gap: 1rem;
 }
 
-.home__group{
+.Inicio__group{
   display: grid;
   position: relative;
   padding-top: 2rem;
 }
 
-.home__img{
+.Inicio__img{
   height: 250px;
   justify-self: center;
   animation: floating 2s ease-in-out infinite;
 }
 
-.home__indicator{
+.Inicio__indicator{
   width: 8px;
   height: 8px;
   background-color: var(--title-color);
@@ -274,7 +271,7 @@ button{
   right: 2rem;
 }
 
-.home__indicator::after{
+.Inicio__indicator::after{
   content: '';
   position: absolute;
   width: 1px;
@@ -284,36 +281,36 @@ button{
   right: 45%;
 }
 
-.home__details-img{
+.Inicio__details-img{
   position: absolute;
   right: .5rem;
 }
 
-.home__details-title,
-.home__details-subtitle{
+.Inicio__details-title,
+.Inicio__details-subtitle{
   display: block;
   font-size: var(--small-font-size);
   text-align: right;
 }
 
-.home__subtitle{
+.Inicio__subtitle{
   font-size: var(--h3-font-size);
   text-transform: uppercase;
   margin-bottom: var(--mb-1);
 }
 
-.home__title{
+.Inicio__title{
   font-size: var(--biggest-font-size);
   font-weight: var(--font-black);
-  line-height: 109%;
+  line-height: 120%;
   margin-bottom: var(--mb-1);
 }
 
-.home__description{
+.Inicio__description{
   margin-bottom: var(--mb-1);
 }
 
-.home__buttons{
+.Inicio__buttons{
   display: flex;
   justify-content: space-between;
 }
@@ -341,60 +338,60 @@ button{
   border-radius: .5rem;
 }
 
-/*=============== Calaverita ===============*/
-.Calaverita__container{
+/*=============== Personajes ===============*/
+.Personajes__container{
   row-gap: 2rem;
 }
 
-.Calaverita__data{
+.Personajes__data{
   text-align: center;
 }
 
-.Calaverita__description{
+.Personajes__description{
   margin-bottom: var(--mb-2);
 }
 
-.Calaverita__img{
+.Personajes__img{
   width: 200px;
   justify-self: center;
   animation: floating 2s ease-in-out infinite;
 }
 
 
-/*=============== FOOTER ===============*/
-.footer{
+/*=============== Pie ===============*/
+.Pie{
   position: relative;
   overflow: hidden;
 }
 
-.footer__img-one,
-.footer__img-two{
+.Pie__img-one,
+.Pie__img-two{
   position: absolute;
-  transition: .3s;
+  transition: .7s;
 }
 
-.footer__img-one{
+.Pie__img-one{
   width: 100px;
   top: 6rem;
-  right: -2rem;
+  right: 6rem;
 }
 
-.footer__img-two{
+.Pie__img-two{
   width: 150px;
   bottom: 4rem;
   right: 4rem;
 }
 
-.footer__img-one:hover,
-.footer__img-two:hover{
+.Pie__img-one:hover,
+.Pie__img-two:hover{
   transform: translateY(-.5rem);
 }
 
-.footer__container{
+.Pie__container{
   row-gap: 2rem;
 }
 
-.footer__logo{
+.Pie__logo{
   display: flex;
   align-items: center;
   column-gap: .5rem;
@@ -403,53 +400,44 @@ button{
   color: var(--title-color);
 }
 
-.footer__logo-img{
+.Pie__logo-img{
   width: 20px;
 }
 
-.footer__description{
+.Pie__description{
   margin-bottom: var(--mb-2-5);
 }
 
-.footer__social{
+.Pie__social{
   display: flex;
   column-gap: .75rem;
 }
 
-.footer__social-link{
-  display: inline-flex;
-  background: var(--container-color);
-  padding: .25rem;
-  border-radius: .25rem;
-  color: var(--title-color);
-  font-size: 1rem;
-}
-
-.footer__social-link:hover{
+.Pie__social-link:hover{
   background: var(--body-color);
 }
 
-.footer__title{
+.Pie__title{
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-1);
 }
 
-.footer__links{
+.Pie__links{
   display: grid;
   row-gap: .35rem;
 }
 
-.footer__link{
+.Pie__link{
   font-size: var(--small-font-size);
   color: var(--text-color);
   transition: .3s;
 }
 
-.footer__link:hover{
+.Pie__link:hover{
   color: var(--title-color);
 }
 
-.footer__copy{
+.Pie__copy{
   display: block;
   text-align: center;
   font-size: var(--smaller-font-size);
@@ -504,10 +492,10 @@ button{
     margin-right: var(--mb-1);
   }
 
-  .home__img{
+  .Inicio__img{
     height: 200px;
   }
-  .home__buttons{
+  .Inicio__buttons{
     flex-direction: column;
     width: max-content;
     row-gap: 1rem;
@@ -522,7 +510,7 @@ button{
 
 /* For medium devices */
 @media screen and (min-width: 576px){
-  .Calaverita__container{
+  .Personajes__container{
     grid-template-columns: .8fr;
     justify-content: center;
   }
@@ -563,12 +551,12 @@ button{
     font-weight: initial;
   }
 
-  .home__content{
+  .Inicio__content{
     padding: 8rem 0 2rem;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
   }
-  .home__img{
+  .Inicio__img{
     height: 300px;
   }
   .swiper-pagination{
@@ -580,15 +568,15 @@ button{
     justify-content: center;
   }
 
-  .Calaverita__container{
+  .Personajes__container{
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
-  .Calaverita__title,
-  .Calaverita__data{
+  .Personajes__title,
+  .Personajes__data{
     text-align: initial;
   }
-  .Calaverita__img{
+  .Personajes__img{
     width: 250px;
   }
 
@@ -618,12 +606,12 @@ button{
     grid-template-columns: .5fr;
   }
 
-  .footer__container{
+  .Pie__container{
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     column-gap: 1rem;
   }
-  .footer__img-two{
+  .Pie__img-two{
     right: initial;
     bottom: 0;
     left: 15%;
@@ -642,35 +630,35 @@ button{
     margin-bottom: 3rem;
   }
 
-  .home__content{
+  .Inicio__content{
     padding-top: 9rem;
     gap: 3rem;
   }
-  .home__group{
+  .Inicio__group{
     padding-top: 0;
   }
-  .home__img{
+  .Inicio__img{
     height: 400px;
     transform: translateY(-3rem);
   }
-  .home__indicator{
+  .Inicio__indicator{
     top: initial;
     right: initial;
     bottom: 15%;
     left: 45%;
   }
-  .home__indicator::after{
+  .Inicio__indicator::after{
     top: 0;
     height: 75px;
   }
-  .home__details-img{
+  .Inicio__details-img{
     bottom: 0;
     right: 58%;
   }
-  .home__title{
+  .Inicio__title{
     margin-bottom: var(--mb-1-5);
   }
-  .home__description{
+  .Inicio__description{
     margin-bottom: var(--mb-2-5);
     padding-right: 2rem;
   }
@@ -682,13 +670,13 @@ button{
     width: 200px;
   }
 
-  .Calaverita__container{
+  .Personajes__container{
     column-gap: 7rem;
   }
-  .Calaverita__img{
+  .Personajes__img{
     width: 350px;
   }
-  .Calaverita__description{
+  .Personajes__description{
     padding-right: 2rem;
   }
 
@@ -725,22 +713,22 @@ button{
     font-size: var(--h3-font-size);
   }
 
-  .footer__copy{
+  .Pie__copy{
     margin-top: 6rem;
   }
 }
 
 @media screen and (min-width: 1200px){
-  .home__img{
+  .Inicio__img{
     height: 420px;
   }
   .swiper-pagination{
     margin-top: var(--mb-2-5);
   }
-  .footer__img-one{
+  .Pie__img-one{
     width: 120px;
   }
-  .footer__img-two{
+  .Pie__img-two{
     width: 180px;
     top: 30%;
     left: -3%;
