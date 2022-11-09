@@ -83,26 +83,26 @@
                       );
                         //capitulos
                         $url = 'https://rickandmortyapi.com/api/episode/?page=';
-                                $ca = curl_init();
-                                curl_setopt($ca,CURLOPT_URL, $url);
-                                curl_setopt($ca,CURLOPT_RETURNTRANSFER, true);
-                                curl_setopt($ca,CURLOPT_HEADER, 0);
-                                $datosapi = curl_exec($ca);
-                                curl_exec($ca);
-                                curl_close($ca);
-                                $datos = json_decode($datosapi);
-                                $capitulos = $datos->results;
-                                //$pagina = $datos->info;
-                                foreach($capitulos as $capitulo){      
-                                    echo "<br><br>";
-                                    echo "<br><br>";
-                                    echo "<h2>$capitulo->id.- $capitulo->name</h2>";
-                                    $fecha = $capitulo->air_date;
-                                    echo "<br><h3>Fecha de estreno del capitulo: ";
-                                    echo str_replace(array_keys($remplazar), array_values($remplazar), $fecha);
-                                    echo "</h3>";
-                                    echo "<br><h3>Este siendo: $capitulo->episode</h3>";
-                                    echo "<a href='$capitulo->url' target='_blank'>Más información</a>";
+                            $ca = curl_init();
+                            curl_setopt($ca,CURLOPT_URL, $url);
+                            curl_setopt($ca,CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($ca,CURLOPT_HEADER, 0);
+                            $datosapi = curl_exec($ca);
+                            curl_exec($ca);
+                            curl_close($ca);
+                            $datos = json_decode($datosapi);
+                            $capitulos = $datos->results;
+                            $pagina = $datos->info;
+                            foreach($capitulos as $capitulo){      
+                              echo "<br><br>";
+                              echo "<br><br>";
+                              echo "<h2>$capitulo->id.- $capitulo->name</h2>";
+                              $fecha = $capitulo->air_date;
+                              echo "<br><h3>Fecha de estreno del capitulo: ";
+                              echo str_replace(array_keys($remplazar), array_values($remplazar), $fecha);
+                              echo "</h3>";
+                              echo "<br><h3>Este siendo: $capitulo->episode</h3>";
+                              echo "<a href='$capitulo->url' target='_blank'>Más información</a>";
                             }
                     ?>          
                 </p>

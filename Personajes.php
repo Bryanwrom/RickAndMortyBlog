@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./Estilos.css" />
+    <link rel="stylesheet" href="Elementos/Estilos.css" />
     <link
     rel="shortcut icon"
     href="img/icon.png"
@@ -34,7 +34,7 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="http://localhost/RickAndMortyBlog/" class="nav__link">Inicio</a>
+              <a href="Index.HTML" class="nav__link">Inicio</a>
             </li>
             <li class="nav__item">
               <a href="http://localhost/RickAndMortyBlog/Elementos/Personajes.php" class="nav__link active-link">Personajes</a>
@@ -64,40 +64,51 @@
                 <h2 class="section__title Personajes__title">
                 Personajes:
                 </h2>
-                <p class="Personajes__description">
+                </form>
                     <?php
+                    $id;
+                    if(isset($_GET["id"])){
+                      $id = $_GET["id"]+1;
+                    }else{
+                      $id = 1;
+                    }
                     $remplazar = array(
                       'Alive' => 'Vivo',
                       'Dead' => 'Muerto',
                       'unknown' => 'Desconocido'
                     );
-                        //personajes
-                        $numpag = 1;
-                        $url = 'https://rickandmortyapi.com/api/character/?page='.$numpag;
-                                $pe = curl_init();
-                                curl_setopt($pe,CURLOPT_URL, $url);
-                                curl_setopt($pe,CURLOPT_RETURNTRANSFER, true);
-                                curl_setopt($pe,CURLOPT_HEADER, 0);
-                                $datosapi = curl_exec($pe);
-                                curl_exec($pe);
-                                curl_close($pe);
-                                $datos = json_decode($datosapi);
-                                $personajes = $datos->results;
-                                $pagina = $datos->info;
-                                foreach($personajes as $personaje){      
-                                    echo "<centre>";
-                                    echo "<br><br>";
-                                    echo "<img src='$personaje->image'>";
-                                    echo "<br><br>";
-                                    echo "<h2>$personaje->name</h2>";
-                                    $statusdelpersonaje = $personaje->status;
-                                    echo "<br><h3>Se encuentra actualmente: ";
-                                    echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
-                                    echo "</h3>";
-                                    echo "<a href='$personaje->url' target='_blank'>Más información</a>";
-                                    echo "</centre>";
-                            }
-                    ?>          
+                    // formulario
+                    echo "
+                    <form action='Personajes.php' method='get'>
+                      <button type='submit' name='id' value={$id}>Siguiente</button>
+                    </form>
+                    ";
+                      
+                          $url = 'https://rickandmortyapi.com/api/character?page='.$id;
+                              $pe = curl_init();
+                              curl_setopt($pe,CURLOPT_URL, $url);
+                              curl_setopt($pe,CURLOPT_RETURNTRANSFER, true);
+                              curl_setopt($pe,CURLOPT_HEADER, 0);
+                              $datosapi = curl_exec($pe);
+                              curl_exec($pe);
+                              curl_close($pe);
+                              $datos = json_decode($datosapi);
+                              $personajes = $datos->results;
+                              foreach($personajes as $personaje){      
+                                echo "<centre>";
+                                echo "<br><br>";
+                                echo '<img src="'.$personaje->image.'">';
+                                echo "<br><br>";
+                                echo "<h2>$personaje->name</h2>";
+                                $statusdelpersonaje = $personaje->status;
+                                echo "<br><h3>Se encuentra actualmente: ";
+                                echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
+                                echo "</h3>";
+                                echo "<a href='$personaje->url' target='_blank'>Más información</a>";
+                                echo "</centre>";
+
+                              }
+                              ?>          
                 </p>
             </div>
             </div>
