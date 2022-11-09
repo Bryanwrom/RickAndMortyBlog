@@ -12,7 +12,7 @@
   --text-color: hsl(var(--hue), 4%, 95%);
   --text-color-light: hsl(var(--hue), 4%, 55%);
 
-  /*Gradiante fondo*/
+  /*Fondo gradiante*/
   --body-color: linear-gradient(90deg, hsl(0, 0%, 5%) 0%, hsl(115, 88%, 35%) 100%);
   --container-color: linear-gradient(136deg, hsl(120, 1%, 15%) 0%, hsl(0, 0%, 3%) 100%);
 
@@ -473,7 +473,7 @@ button{
   bottom: 3rem;
 }
 
-/*=============== SCROLL BAR ===============*/
+/*=============== Barra ===============*/
 ::-webkit-scrollbar{
   width: 0.6rem;
   background: #413e3e;
@@ -484,8 +484,6 @@ button{
   border-radius: .5rem;
 }
 
-/*===============  BREAKPOINTS ===============*/
-/* For small devices */
 @media screen and (max-width: 320px){
   .container{
     margin-left: var(--mb-1);
