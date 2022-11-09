@@ -40,7 +40,7 @@
               <a href="http://localhost/RickAndMortyBlog/Elementos/Personajes.php" class="nav__link active-link">Personajes</a>
             </li>
             <li class="nav__item">
-                <a href="" class="nav__link">Capitulos</a>
+                <a href="http://localhost/RickAndMortyBlog/Elementos/Capitulos.php" class="nav__link">Capitulos</a>
               </li>
               <li class="nav__item">
                 <a href="" class="nav__link">Descubre Personajes</a>
@@ -58,7 +58,7 @@
     </header>
     <main class="main">
       <section class="section Personajes" id="Personajes">
-        <div class="Personajes__container container grid">
+        <div class="Cont__container container grid">
 
             <div class="Personajes__data">
                 <h2 class="section__title Personajes__title">
@@ -100,9 +100,5 @@
             </div>
         </section>
     </main>
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
-    </a>
-    <script src="./Codigo.js"></script>
   </body>
 </html>

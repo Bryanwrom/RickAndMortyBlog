@@ -63,10 +63,14 @@
             <div class="Personajes__data">
                 <h2 class="section__title Personajes__title">
                 Personajes:
-                <br />
                 </h2>
                 <p class="Personajes__description">
                     <?php
+                    $remplazar = array(
+                      'Alive' => 'Vivo',
+                      'Dead' => 'Muerto',
+                      'unknown' => 'Desconocido'
+                    );
                         //personajes
                         $numpag = 1;
                         $url = 'https://rickandmortyapi.com/api/character/?page='.$numpag;
@@ -86,24 +90,18 @@
                                     echo "<img src='$personaje->image'>";
                                     echo "<br><br>";
                                     echo "<h2>$personaje->name</h2>";
-                                    if($personaje->status == "Alive"){
-                                        $personaje->status = "Vivo";
-                                    }else{
-                                        $personaje->status = "Muerto";
-                                    }
-                                    echo "<br><h3>Se encuentra actualmente: $personaje->status</h3>";
+                                    $statusdelpersonaje = $personaje->status;
+                                    echo "<br><h3>Se encuentra actualmente: ";
+                                    echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
+                                    echo "</h3>";
                                     echo "<a href='$personaje->url' target='_blank'>Más información</a>";
                                     echo "</centre>";
                             }
-                        echo"<input type='submit' name='sumar' value='sumar'>Siguiente</input>";
-                        if (isset($_POST['sumar'])){
-                            $numpag++;
-                        }
                     ?>          
                 </p>
             </div>
             </div>
-        </section>
+        </section>  
     </main>
   </body>
 </html>

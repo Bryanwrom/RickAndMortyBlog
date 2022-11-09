@@ -338,20 +338,20 @@ button{
   border-radius: .5rem;
 }
 
-/*=============== Personajes ===============*/
-.Personajes__container{
+/*=============== Cont ===============*/
+.Cont__container{
   row-gap: 2rem;
 }
 
-.Personajes__data{
+.Cont__data{
   text-align: center;
 }
 
-.Personajes__description{
+.Cont__description{
   margin-bottom: var(--mb-2);
 }
 
-.Personajes__img{
+.Cont__img{
   width: 200px;
   justify-self: center;
   animation: floating 2s ease-in-out infinite;
@@ -508,7 +508,7 @@ button{
 
 /* For medium devices */
 @media screen and (min-width: 576px){
-  .Personajes__container{
+  .Cont__container{
     grid-template-columns: .8fr;
     justify-content: center;
   }
@@ -566,15 +566,15 @@ button{
     justify-content: center;
   }
 
-  .Personajes__container{
+  .Cont__container{
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
-  .Personajes__title,
-  .Personajes__data{
+  .Cont__title,
+  .Cont__data{
     text-align: initial;
   }
-  .Personajes__img{
+  .Cont__img{
     width: 250px;
   }
 
@@ -668,13 +668,13 @@ button{
     width: 200px;
   }
 
-  .Personajes__container{
+  .Cont__container{
     column-gap: 7rem;
   }
-  .Personajes__img{
+  .Cont__img{
     width: 350px;
   }
-  .Personajes__description{
+  .Cont__description{
     padding-right: 2rem;
   }
 
