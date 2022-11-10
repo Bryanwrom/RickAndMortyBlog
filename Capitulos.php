@@ -13,19 +13,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./Estilos.css" />
+    <link rel="stylesheet" href="Elementos/Estilos.css" />
     <link
     rel="shortcut icon"
-    href="img/icon.png"
+    href="Elementos/img/icon.png"
     type="image/x-icon"
   />
   </head>
   <body>
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="#" class="nav__logo">
+        <a href="Index.HTML" class="nav__logo">
           <img
-            src="img/icon.png"
+            src="Elementos/img/icon.png"
             alt=""
             class="nav__logo-img"
           />
@@ -34,13 +34,13 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="http://localhost/RickAndMortyBlog/" class="nav__link">Inicio</a>
+              <a href="Index.HTML" class="nav__link">Inicio</a>
             </li>
             <li class="nav__item">
-              <a href="http://localhost/RickAndMortyBlog/Elementos/Personajes.php" class="nav__link ">Personajes</a>
+              <a href="Personajes.php" class="nav__link ">Personajes</a>
             </li>
             <li class="nav__item">
-                <a href="http://localhost/RickAndMortyBlog/Elementos/Capitulos.php" class="nav__link active-link">Capitulos</a>
+                <a href="Capitulos.php" class="nav__link active-link">Capitulos</a>
               </li>
               <li class="nav__item">
                 <a href="" class="nav__link">Descubre capitulos</a>
@@ -67,6 +67,12 @@
                 </h2>
                 <p class="capitulos__description">
                     <?php
+                      $id;
+                      if(isset($_GET["id"])){
+                        $id = $_GET["id"]+1;
+                      }else{
+                        $id = 1;
+                      }
                     $remplazar = array(
                       'January' => 'Enero',
                       'February' => 'Febrero',
@@ -81,29 +87,32 @@
                       'November' => 'Noviembre',
                       'December' => 'Diciembre'
                       );
-                        //capitulos
-                        $url = 'https://rickandmortyapi.com/api/episode/?page=';
-                            $ca = curl_init();
-                            curl_setopt($ca,CURLOPT_URL, $url);
-                            curl_setopt($ca,CURLOPT_RETURNTRANSFER, true);
-                            curl_setopt($ca,CURLOPT_HEADER, 0);
-                            $datosapi = curl_exec($ca);
-                            curl_exec($ca);
-                            curl_close($ca);
-                            $datos = json_decode($datosapi);
-                            $capitulos = $datos->results;
-                            $pagina = $datos->info;
-                            foreach($capitulos as $capitulo){      
-                              echo "<br><br>";
-                              echo "<br><br>";
-                              echo "<h2>$capitulo->id.- $capitulo->name</h2>";
-                              $fecha = $capitulo->air_date;
-                              echo "<br><h3>Fecha de estreno del capitulo: ";
-                              echo str_replace(array_keys($remplazar), array_values($remplazar), $fecha);
-                              echo "</h3>";
-                              echo "<br><h3>Este siendo: $capitulo->episode</h3>";
-                              echo "<a href='$capitulo->url' target='_blank'>Más información</a>";
-                            }
+                    // formulario
+                    echo "
+                    <form action='Capitulos.php' method='get'>
+                      <button type='submit' name='id' value={$id}>Siguiente</button>
+                    </form>";
+                    $url = 'https://rickandmortyapi.com/api/episode/?page='.$id;
+                      $ca = curl_init();
+                      curl_setopt($ca,CURLOPT_URL, $url);
+                      curl_setopt($ca,CURLOPT_RETURNTRANSFER, true);
+                      curl_setopt($ca,CURLOPT_HEADER, 0);
+                      $datosapi = curl_exec($ca);
+                      curl_exec($ca);
+                      curl_close($ca);
+                      $datos = json_decode($datosapi);
+                      $capitulos = $datos->results;
+                      foreach($capitulos as $capitulo){      
+                        echo "<br><br>";
+                        echo "<br><br>";
+                        echo "<h2>$capitulo->id.- $capitulo->name</h2>";
+                        $fecha = $capitulo->air_date;
+                        echo "<br><h3>Fecha de estreno del capitulo: ";
+                        echo str_replace(array_keys($remplazar), array_values($remplazar), $fecha);
+                        echo "</h3>";
+                        echo "<br><h3>Este siendo: $capitulo->episode</h3>";
+                        echo "<a href='$capitulo->url' target='_blank'>Más información</a>";
+                      }  
                     ?>          
                 </p>
             </div>

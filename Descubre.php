@@ -67,6 +67,12 @@
                 </h2>
                 <p class="Personajes__description">
                     <?php
+                      $id;
+                      if(isset($_GET["id"])){
+                        $id = $_GET["id"]+1;
+                      }else{
+                        $id = 1;
+                      }
                         //personajes
                         $url = 'https://rickandmortyapi.com/api/character/?pages=';
                                 $pe = curl_init();
@@ -93,7 +99,7 @@
                                     echo "<br><h3>Se encuentra actualmente: $personaje->status</h3>";
                                     echo "<a href='$personaje->url' target='_blank'>Más información</a>";
                                     echo "</centre>";
-                            }
+                                  }
                     ?>          
                 </p>
             </div>
