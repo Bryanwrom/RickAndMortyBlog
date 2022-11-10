@@ -23,7 +23,7 @@
   <body>
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="Index.HTML" class="nav__logo">
+        <a href="index.HTML" class="nav__logo">
           <img
             src="Elementos/img/icon.png"
             alt=""
@@ -34,7 +34,7 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="Index.HTML" class="nav__link">Inicio</a>
+              <a href="index.HTML" class="nav__link">Inicio</a>
             </li>
             <li class="nav__item">
               <a href="Personajes.php" class="nav__link active-link">Personajes</a>
@@ -62,13 +62,14 @@
                     <?php
                     //cambio de paginas
                     $id;
-                    if(isset($_GET["pag"])){
-                      $id = $_GET["pag"]-1;
-                    }
+                    $BotonMos = "";
                     if(isset($_GET["pagina"])){
                       $id = $_GET["pagina"]+1;
                     }else{
                       $id = 1;
+                    }
+                    if(isset($_GET["pag"])){
+                      $id = $_GET["pag"]-1;
                     }
                     if($id == 0){
                       $id = 1;
@@ -76,6 +77,7 @@
                     if($id == 42){
                       $id = 1;
                     }
+                    if(isset($_GET['BotonMos']))$BotonMos=$_GET['BotonMos'];
                     $remplazar = array(
                       'Alive' => 'Vivo',
                       'Dead' => 'Muerto',
@@ -86,12 +88,6 @@
                       'Female' => 'Femenino',
                       'planet' => 'Planeta'
                     );
-                    // formulario
-                    echo "
-                    <form action='Personajes.php' method='get'>
-                      <button class='button' type='submit' name='pag' value={$id}>Atras</button>
-                      <button class='button' type='submit' name='pagina' value={$id}>Siguiente</button>
-                    </form>";
                     $url = 'https://rickandmortyapi.com/api/character?page='.$id;
                       $pe = curl_init();
                       curl_setopt($pe,CURLOPT_URL, $url);
@@ -102,24 +98,55 @@
                       curl_close($pe);
                       $datos = json_decode($datosapi);
                       $personajes = $datos->results;
-                      $pagina = $datos->info;
-                      foreach($personajes as $personaje){      
-                        echo "<div class='cuadros__container container grid'>
-                              <div class='cuadros__content'>";
+                      echo"<div class='cuadros__container container grid'>";
+                      foreach($personajes as $personaje){
+                        $BotonMos = $personaje->id;      
+                        echo "<div class='cuadros__content'>";
                         echo '<img src="'.$personaje->image.'" class="cuadros__img">';
                         echo "<br><br>";
                         echo "<h3 class='cuadros__title'>$personaje->name</h3>";
                         $statusdelpersonaje = $personaje->status;
                         echo "<span class='cuadros__subtitle'>Se encuentra actualmente: ";
                         echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
+                        if($BotonMos == "Mostrar"){
+                          $idper = $personaje->id;
+                          $url = 'https://rickandmortyapi.com/api/character/'.$idper;
+                          $perin = curl_init();
+                          curl_setopt($perin,CURLOPT_URL, $url);
+                          curl_setopt($perin,CURLOPT_RETURNTRANSFER, true);
+                          curl_setopt($perin,CURLOPT_HEADER, 0);
+                          $datosapiper = curl_exec($perin);
+                          curl_exec($perin);
+                          curl_close($perin);
+                          $datosper = json_decode($datosapiper);    
+                            echo "<br>";
+                            $especie = $datosper->species;
+                            echo "<span>Es de la especie: <span>";
+                            echo str_replace(array_keys($remplazar), array_values($remplazar), $especie);
+                            echo "<br>";
+                            $generodelpersonaje = $datosper->gender;
+                            echo "<span>Es del genenero: ";
+                            echo str_replace(array_keys($remplazar), array_values($remplazar), $generodelpersonaje);
+                            echo "<br>";
+                            $locacion = $datosper->location->name;
+                            echo "<span>Se localiza en: ";
+                            echo str_replace(array_keys($remplazar), array_values($remplazar), $locacion);
+                          }
                         echo "</span></h3>
-                          <button class='button cuadros__button'>
-                          <i class='bx bx-book-alt cuadros__icon'></i>
+                          <form action='Personajes.php' method='get'>
+                          <button class='button cuadros__button' name='BotonMos' value='Mostrar'>
+                          <i class='bx bx-book cuadros__icon'></i>
                           </button>
-                          </div>
-                          </div>
+                          </form>
                           </div>";
                       }
+                      echo"</div>";
+                       // formulario
+                    echo "
+                    <form action='Personajes.php' method='get'>
+                      <button class='button' type='submit' name='pag' value={$id}>Atras</button>
+                      <button class='button' type='submit' name='pagina' value={$id}>Siguiente</button>
+                    </form>";
                     ?>
         </section>  
     </main>
