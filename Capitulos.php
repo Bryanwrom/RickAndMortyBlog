@@ -61,8 +61,6 @@
         <div class="capitulos__container container grid">
 
             <div class="capitulos__data">
-                <h2 class="section__title capitulos__title">
-                capitulos:
                 <br />
                 </h2>
                 <p class="capitulos__description">

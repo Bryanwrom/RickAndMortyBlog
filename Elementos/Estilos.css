@@ -5,8 +5,8 @@
   --header-height: 3.5rem;
 
   /*========== Colores ==========*/
-  --hue: 14;
-  --first-color: hsl(var(--hue), 91%, 54%);
+  --hue: 115;
+  --first-color: hsl(var(--hue), 88%, 35%);
   --first-color-alt: hsl(var(--hue), 91%, 50%);
   --title-color: hsl(var(--hue), 4%, 100%);
   --text-color: hsl(var(--hue), 4%, 95%);
@@ -337,6 +337,79 @@ button{
   border-radius: .5rem;
 }
 
+/*=============== Botones ===============*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  padding: 1rem 1.75rem;
+  border-radius: .5rem;
+  font-weight: var(--font-medium);
+  transition: .3s;
+}
+
+.button:hover{
+  background-color: var(--first-color-alt);
+}
+
+/*=============== cuadros ===============*/
+.cuadros__container{
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.cuadros__content{
+  position: relative;
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cuadros__img{
+  width: 90px;
+  transition: .3s;
+}
+
+.cuadros__subtitle{
+  display: block;
+}
+
+.cuadros__subtitle{
+  font-size: var(--smaller-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+
+.cuadros__title{
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+}
+
+.cuadros__button{
+  display: inline-flex;
+  padding: .5rem;
+  border-radius: .25rem .25rem .75rem .25rem;
+  position: absolute;
+  right: -1rem;
+  bottom: 0;
+}
+
+.cuadros__icon{
+  font-size: 1.25rem;
+  color: var(--title-color);
+}
+
+.cuadros__content:hover .cuadros__img{
+  transform: translateY(-.5rem);
+}
+
+.cuadros__content:hover .cuadros__button{
+  right: 0;
+}
+
 /*=============== Cont ===============*/
 .Cont__container{
   row-gap: 2rem;
@@ -443,35 +516,6 @@ button{
   margin-top: 4.5rem;
 }
 
-/*=============== SCROLL UP ===============*/
-.scrollup{
-  position: fixed;
-  background: var(--container-color);
-  right: 1rem;
-  bottom: -20%;
-  display: inline-flex;
-  padding: .3rem;
-  border-radius: .25rem;
-  z-index: var(--z-tooltip);
-  opacity: .8;
-  transition: .4s;
-}
-
-.scrollup__icon{
-  font-size: 1.25rem;
-  color: var(--title-color);
-}
-
-.scrollup:hover{
-  background: var(--container-color);
-  opacity: 1;
-}
-
-/* Show Scroll Up*/
-.show-scroll{
-  bottom: 3rem;
-}
-
 /*=============== Barra ===============*/
 ::-webkit-scrollbar{
   width: 0.6rem;
@@ -499,26 +543,17 @@ button{
   }
 
   .category__container,
-  .Moonie__container{
+  .cuadros__container{
     grid-template-columns: .8fr;
     justify-content: center;
   }
 }
 
-/* For medium devices */
+/* dispositivos medianos */
 @media screen and (min-width: 576px){
   .Cont__container{
     grid-template-columns: .8fr;
     justify-content: center;
-  }
-
-  .newsletter__container{
-    display: grid;
-    grid-template-columns: .7fr;
-    justify-content: center;
-  }
-  .newsletter__description{
-    padding: 0 3rem;
   }
 }
 
@@ -560,11 +595,6 @@ button{
     margin-top: var(--mb-2);
   }
 
-  .category__container{
-    grid-template-columns: repeat(3, 200px);
-    justify-content: center;
-  }
-
   .Cont__container{
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -577,30 +607,10 @@ button{
     width: 250px;
   }
 
-  .Moonie__container{
+  .cuadros__container{
     grid-template-columns: repeat(3, 200px);
     justify-content: center;
     gap: 2rem;
-  }
-
-  .discount__container{
-    grid-template-columns: repeat(2, max-content);
-    justify-content: center;
-    align-items: center;
-    column-gap: 3rem;
-    padding: 3rem 0;
-    border-radius: 3rem;
-  }
-  .discount__img{
-    width: 350px;
-    order: -1;
-  }
-  .discount__data{
-    padding-right: 6rem;
-  }
-
-  .newsletter__container{
-    grid-template-columns: .5fr;
   }
 
   .Pie__container{
@@ -615,7 +625,7 @@ button{
   }
 }
 
-/* For large devices */
+/* Dispositivos largos */
 @media screen and (min-width: 992px){
   .container{
     margin-left: auto;
@@ -677,21 +687,17 @@ button{
     padding-right: 2rem;
   }
 
-  .Moonie__container{
+  .cuadros__container{
     gap: 3.5rem;
   }
-  .Moonie__content{
+  .cuadros__content{
     border-radius: 1.5rem;
   }
-  .Moonie__img{
+  .cuadros__img{
     width: 110px;
   }
-  .Moonie__title{
+  .cuadros__title{
     font-size: var(--h3-font-size);
-  }
-
-  .discount__container{
-    column-gap: 7rem;
   }
 
   .new__content{

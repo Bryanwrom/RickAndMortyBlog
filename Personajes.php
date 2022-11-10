@@ -57,13 +57,7 @@
       </nav>
     </header>
     <main class="main">
-      <section class="section Personajes" id="Personajes">
-        <div class="Personajes__container container grid">
-
-            <div class="Personajes__data">
-                <h2 class="section__title Personajes__title">
-                Personajes:
-                </h2>
+      <section class="section cuadros" id="cuadros">
                 </form>
                     <?php
                     //cambio de paginas
@@ -95,8 +89,8 @@
                     // formulario
                     echo "
                     <form action='Personajes.php' method='get'>
-                      <button type='submit' name='pag' value={$id}>Atras</button>
-                      <button type='submit' name='pagina' value={$id}>Siguiente</button>
+                      <button class='button' type='submit' name='pag' value={$id}>Atras</button>
+                      <button class='button' type='submit' name='pagina' value={$id}>Siguiente</button>
                     </form>";
                     $url = 'https://rickandmortyapi.com/api/character?page='.$id;
                       $pe = curl_init();
@@ -110,20 +104,23 @@
                       $personajes = $datos->results;
                       $pagina = $datos->info;
                       foreach($personajes as $personaje){      
+                        echo "<div class='cuadros__container container grid'>
+                              <div class='cuadros__content'>";
+                        echo '<img src="'.$personaje->image.'" class="cuadros__img">';
                         echo "<br><br>";
-                        echo '<img src="'.$personaje->image.'">';
-                        echo "<br><br>";
-                        echo "<h2>$personaje->name</h2>";
+                        echo "<h3 class='cuadros__title'>$personaje->name</h3>";
                         $statusdelpersonaje = $personaje->status;
-                        echo "<br><h3>Se encuentra actualmente: ";
+                        echo "<span class='cuadros__subtitle'>Se encuentra actualmente: ";
                         echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
-                        echo "</h3>";
-                        echo "<a href='$personaje->url' target='_blank'>Más información</a>";
+                        echo "</span></h3>
+                          <button class='button cuadros__button'>
+                          <i class='bx bx-book-alt cuadros__icon'></i>
+                          </button>
+                          </div>
+                          </div>
+                          </div>";
                       }
-                    ?>          
-                </p>
-            </div>
-            </div>
+                    ?>
         </section>  
     </main>
   </body>
