@@ -68,9 +68,15 @@
                     <?php
                     //cambio de paginas
                     $id;
-                    if(isset($_GET["id"])){
-                      $id = $_GET["id"]+1;
+                    if(isset($_GET["pag"])){
+                      $id = $_GET["pag"]-1;
+                    }
+                    if(isset($_GET["pagina"])){
+                      $id = $_GET["pagina"]+1;
                     }else{
+                      $id = 1;
+                    }
+                    if($id == 0){
                       $id = 1;
                     }
                     $remplazar = array(
@@ -81,7 +87,8 @@
                     // formulario
                     echo "
                     <form action='Personajes.php' method='get'>
-                      <button type='submit' name='id' value={$id}>Siguiente</button>
+                      <button type='submit' name='pag' value={$id}>Atras</button>
+                      <button type='submit' name='pagina' value={$id}>Siguiente</button>
                     </form>";
                     $url = 'https://rickandmortyapi.com/api/character?page='.$id;
                       $pe = curl_init();
@@ -93,6 +100,7 @@
                       curl_close($pe);
                       $datos = json_decode($datosapi);
                       $personajes = $datos->results;
+                      $pagina = $datos->info;
                       foreach($personajes as $personaje){      
                         echo "<br><br>";
                         echo '<img src="'.$personaje->image.'">';
