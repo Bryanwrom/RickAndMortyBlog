@@ -79,10 +79,18 @@
                     if($id == 0){
                       $id = 1;
                     }
+                    if($id == 42){
+                      $id = 1;
+                    }
                     $remplazar = array(
                       'Alive' => 'Vivo',
                       'Dead' => 'Muerto',
-                      'unknown' => 'Desconocido'
+                      'unknown' => 'Desconocido',
+                      'Human' => 'Humano',
+                      'Earth' => 'Tierra',
+                      'Male' => 'Masculino',
+                      'Female' => 'Femenino',
+                      'planet' => 'Planeta'
                     );
                     // formulario
                     echo "
