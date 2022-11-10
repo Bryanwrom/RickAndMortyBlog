@@ -77,7 +77,6 @@
                     if($id == 42){
                       $id = 1;
                     }
-                    if(isset($_GET['BotonMos']))$BotonMos=$_GET['BotonMos'];
                     $remplazar = array(
                       'Alive' => 'Vivo',
                       'Dead' => 'Muerto',
@@ -108,7 +107,6 @@
                         $statusdelpersonaje = $personaje->status;
                         echo "<span class='cuadros__subtitle'>Se encuentra actualmente: ";
                         echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
-                        if($BotonMos == "Mostrar"){
                           $idper = $personaje->id;
                           $url = 'https://rickandmortyapi.com/api/character/'.$idper;
                           $perin = curl_init();
@@ -131,13 +129,10 @@
                             $locacion = $datosper->location->name;
                             echo "<span>Se localiza en: ";
                             echo str_replace(array_keys($remplazar), array_values($remplazar), $locacion);
-                          }
                         echo "</span></h3>
-                          <form action='Personajes.php' method='get'>
-                          <button class='button cuadros__button' name='BotonMos' value='Mostrar'>
+                          <button class='button cuadros__button' name='BotonMos'>
                           <i class='bx bx-book cuadros__icon'></i>
                           </button>
-                          </form>
                           </div>";
                       }
                       echo"</div>";
