@@ -111,9 +111,10 @@
           <div class="swiper-pagination"></div>
         </div>
       </section>
-      <div>
+      <section class="section cuadros" id="cuadros">
+      <h2 class="section__title">Personaje Aleatorio</h2>
+        <div class='cuadros__container container grid'>
         <?php
-        echo"<section class='section cuadros' id='cuadros'>";
         for($i = 1; $i <= 3 ; $i++){   
                       $id = rand(1, 826);
                       $remplazar = array(
@@ -135,8 +136,7 @@
                         $datosapi = curl_exec($pe);
                         curl_exec($pe);
                         curl_close($pe);
-                        $datos = json_decode($datosapi);
-                        echo"<div class='cuadros__container container grid'>";     
+                        $datos = json_decode($datosapi);     
                           echo "<div class='cuadros__content'>";
                           echo '<img src="'.$datos->image.'" class="cuadros__img">';
                           echo "<br><br>";
@@ -159,10 +159,8 @@
                               echo str_replace(array_keys($remplazar), array_values($remplazar), $locacion);
                           echo "</span></span></h3>
                             </div>";
-                        echo"</div>";
                       }
-                      echo "</section>";    
-                      echo "<section class='section cuadros' id='cuadros'>";   
+                      echo"<div class='cuadros__container container grid'>";
                       $remplazar = array(
                         'Alive' => 'Vivo',
                         'Dead' => 'Muerto',
@@ -182,22 +180,10 @@
                         curl_exec($epi);
                         curl_close($epi);
                         $datosepi = json_decode($datosapiepi);
-                        echo "<section class='Inicio container' id='Inicio'>
-                              <div class='swiper Inicio-swiper'>
-                              <div class='swiper-wrapper'>
-                              <section class='swiper-slide'>
-                              <div class='Inicio__data'>
-                              <h3 class='Inicio__subtitle'>$datosepi->name</h3>
-                              </div>
-                              </section>
-                              </div>
-                              </div>
-                              </section>
-                              <br />";
+                        echo "<h2 class='section__title'>$datosepi->name :</h2>";
                       $numper = count($datosepi->characters);
                       for($i = 0; $i < $numper ; $i++){
                         $urlpe = $datosepi->characters[$i];
-                        echo"$urlpe";
                         $pec = curl_init();
                         curl_setopt($pec,CURLOPT_URL, $urlpe);
                         curl_setopt($pec,CURLOPT_RETURNTRANSFER, true);
@@ -205,8 +191,7 @@
                         $datosapicap = curl_exec($pec);
                         curl_exec($pec);
                         curl_close($pec);
-                        $datoscap = json_decode($datosapicap);
-                        echo"<div class='cuadros__container container grid'>";     
+                        $datoscap = json_decode($datosapicap);     
                           echo "<div class='cuadros__content'>";
                           echo '<img src="'.$datoscap->image.'" class="cuadros__img">';
                           echo "<br><br>";
@@ -230,10 +215,9 @@
                           echo "</span></span></h3>
                             </div>";
                       }
-                        echo"</div>";
-                        echo"</section>";
                       ?>
-      </div>
+                      </div>
+      </section>
     </main>
       <img src="Elementos/img/Portal.gif" alt="" class="Pie__img-two" />
       <img src="Elementos/img/Pickle_rick.png" alt="" class="Pie__img-one" />
