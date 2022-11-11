@@ -67,39 +67,53 @@
                 </h2>
                 <p class="Personajes__description">
                     <?php
-                      $id;
-                      if(isset($_GET["id"])){
-                        $id = $_GET["id"]+1;
-                      }else{
-                        $id = 1;
-                      }
-                        //personajes
-                        $url = 'https://rickandmortyapi.com/api/character/?pages=';
-                                $pe = curl_init();
-                                curl_setopt($pe,CURLOPT_URL, $url);
-                                curl_setopt($pe,CURLOPT_RETURNTRANSFER, true);
-                                curl_setopt($pe,CURLOPT_HEADER, 0);
-                                $datosapi = curl_exec($pe);
-                                curl_exec($pe);
-                                curl_close($pe);
-                                $datos = json_decode($datosapi);
-                                $personajes = $datos->results;
-                                $pagina = $datos->info;
-                                foreach($personajes as $personaje){      
-                                    echo "<centre>";
-                                    echo "<br><br>";
-                                    echo "<img src='$personaje->image'>";
-                                    echo "<br><br>";
-                                    echo "<h2>$personaje->name</h2>";
-                                    if($personaje->status == "Alive"){
-                                        $personaje->status = "Vivo";
-                                    }else{
-                                        $personaje->status = "Muerto";
-                                    }
-                                    echo "<br><h3>Se encuentra actualmente: $personaje->status</h3>";
-                                    echo "<a href='$personaje->url' target='_blank'>Más información</a>";
-                                    echo "</centre>";
-                                  }
+                      for($i=1;i =3; i++){
+                        $id = rand(1, 826);
+                        $remplazar = array(
+                          'Alive' => 'Vivo',
+                          'Dead' => 'Muerto',
+                          'unknown' => 'Desconocido',
+                          'Human' => 'Humano',
+                          'Earth' => 'Tierra',
+                          'Male' => 'Masculino',
+                          'Female' => 'Femenino',
+                          'planet' => 'Planeta'
+                        );
+                        $url = 'https://rickandmortyapi.com/api/character/'.$id;;
+                          $pe = curl_init();
+                          curl_setopt($pe,CURLOPT_URL, $url);
+                          curl_setopt($pe,CURLOPT_RETURNTRANSFER, true);
+                          curl_setopt($pe,CURLOPT_HEADER, 0);
+                          $datosapi = curl_exec($pe);
+                          curl_exec($pe);
+                          curl_close($pe);
+                          $datos = json_decode($datosapi);
+                          $personajes = $datos->results;
+                          echo"<div class='cuadros__container container grid'>";      
+                            echo "<div class='cuadros__content'>";
+                            echo '<img src="'.$personajes->image.'" class="cuadros__img">';
+                            echo "<br><br>";
+                            echo "<h3 class='cuadros__title'>$personajes->name</h3>";
+                            $statusdelpersonaje = $personajes->status;
+                            echo "<span class='cuadros__subtitle'>Se encuentra actualmente: ";
+                            echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
+                            echo "<span class='button cuadros__button'>";   
+                                echo "<br>";
+                                $especie = $personajes->species;
+                                echo "<span>Es de la especie: <span>";
+                                echo str_replace(array_keys($remplazar), array_values($remplazar), $especie);
+                                echo "<br>";
+                                $generodelpersonaje = $personajes->gender;
+                                echo "<span>Es del genenero: ";
+                                echo str_replace(array_keys($remplazar), array_values($remplazar), $generodelpersonaje);
+                                echo "<br>";
+                                $locacion = $personajes->location->name;
+                                echo "<span>Se localiza en: ";
+                                echo str_replace(array_keys($remplazar), array_values($remplazar), $locacion);
+                                echo "</span></span></h3>
+                                </div>";
+                          echo"</div>";
+                        }
                     ?>          
                 </p>
             </div>

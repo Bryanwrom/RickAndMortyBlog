@@ -23,7 +23,7 @@
   <body>
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="index.HTML" class="nav__logo">
+        <a href="index.php" class="nav__logo">
           <img
             src="Elementos/img/icon.png"
             alt=""
@@ -34,10 +34,10 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="index.HTML" class="nav__link">Inicio</a>
+              <a href="index.php" class="nav__link">Inicio</a>
             </li>
             <li class="nav__item">
-              <a href="Personajes.php" class="nav__link active-link">Personajes</a>
+              <a href="Personaje.php" class="nav__link active-link">Personajes</a>
             </li>
             <li class="nav__item">
                 <a href="Capitulos.php" class="nav__link">Capitulos</a>
@@ -62,7 +62,6 @@
                     <?php
                     //cambio de paginas
                     $id;
-                    $BotonMos = "";
                     if(isset($_GET["pagina"])){
                       $id = $_GET["pagina"]+1;
                     }else{
@@ -98,8 +97,7 @@
                       $datos = json_decode($datosapi);
                       $personajes = $datos->results;
                       echo"<div class='cuadros__container container grid'>";
-                      foreach($personajes as $personaje){
-                        $BotonMos = $personaje->id;      
+                      foreach($personajes as $personaje){    
                         echo "<div class='cuadros__content'>";
                         echo '<img src="'.$personaje->image.'" class="cuadros__img">';
                         echo "<br><br>";
@@ -107,6 +105,7 @@
                         $statusdelpersonaje = $personaje->status;
                         echo "<span class='cuadros__subtitle'>Se encuentra actualmente: ";
                         echo str_replace(array_keys($remplazar), array_values($remplazar), $statusdelpersonaje);
+                        echo "<span class='button cuadros__button'>";
                           $idper = $personaje->id;
                           $url = 'https://rickandmortyapi.com/api/character/'.$idper;
                           $perin = curl_init();
@@ -129,10 +128,7 @@
                             $locacion = $datosper->location->name;
                             echo "<span>Se localiza en: ";
                             echo str_replace(array_keys($remplazar), array_values($remplazar), $locacion);
-                        echo "</span></h3>
-                          <button class='button cuadros__button' name='BotonMos'>
-                          <i class='bx bx-book cuadros__icon'></i>
-                          </button>
+                        echo "</span></span></h3>
                           </div>";
                       }
                       echo"</div>";

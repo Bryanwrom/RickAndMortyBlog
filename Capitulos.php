@@ -23,7 +23,7 @@
   <body>
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="index.HTML" class="nav__logo">
+        <a href="index.php" class="nav__logo">
           <img
             src="Elementos/img/icon.png"
             alt=""
@@ -34,7 +34,7 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="index.HTML" class="nav__link">Inicio</a>
+              <a href="index.php" class="nav__link">Inicio</a>
             </li>
             <li class="nav__item">
               <a href="Personajes.php" class="nav__link ">Personajes</a>
