@@ -42,9 +42,6 @@
             <li class="nav__item">
                 <a href="Capitulos.php" class="nav__link">Capitulos</a>
               </li>
-              <li class="nav__item">
-                <a href="" class="nav__link">Descubre Personajes</a>
-              </li>
           </ul>
           <div class="nav__close" id="nav-close">
             <i class="bx bx-x"></i>
@@ -141,5 +138,6 @@
                     ?>
         </section>  
     </main>
+    <script src="Elementos/main.js"></script>
   </body>
 </html>

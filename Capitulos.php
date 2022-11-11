@@ -37,13 +37,10 @@
               <a href="index.php" class="nav__link">Inicio</a>
             </li>
             <li class="nav__item">
-              <a href="Personajes.php" class="nav__link ">Personajes</a>
+              <a href="Personaje.php" class="nav__link ">Personajes</a>
             </li>
             <li class="nav__item">
                 <a href="Capitulos.php" class="nav__link active-link">Capitulos</a>
-              </li>
-              <li class="nav__item">
-                <a href="" class="nav__link">Descubre capitulos</a>
               </li>
           </ul>
           <div class="nav__close" id="nav-close">
@@ -57,13 +54,6 @@
       </nav>
     </header>
     <main class="main">
-      <section class="section capitulos" id="capitulos">
-        <div class="capitulos__container container grid">
-
-            <div class="capitulos__data">
-                <br />
-                </h2>
-                <p class="capitulos__description">
                     <?php
                       //cambio de paginas
                     $id;
@@ -93,15 +83,17 @@
                       'September' => 'Septiembre',
                       'Octuber' => 'Octubre',
                       'November' => 'Noviembre',
-                      'December' => 'Diciembre'
+                      'December' => 'Diciembre',
+                      'Alive' => 'Vivo',
+                      'Dead' => 'Muerto',
+                      'unknown' => 'Desconocido',
+                      'Human' => 'Humano',
+                      'Earth' => 'Tierra',
+                      'Male' => 'Masculino',
+                      'Female' => 'Femenino',
+                      'planet' => 'Planeta'
                       );
-                      // formulario
-                    echo "
-                    <form action='Capitulos.php' method='get'>
-                      <button type='submit' name='pag' value={$id}>Atras</button>
-                      <button type='submit' name='pagina' value={$id}>Siguiente</button>
-                    </form>";
-                    $url = 'https://rickandmortyapi.com/api/episode/?page='.$id;
+                      $url = 'https://rickandmortyapi.com/api/episode/?page='.$id;
                       $ca = curl_init();
                       curl_setopt($ca,CURLOPT_URL, $url);
                       curl_setopt($ca,CURLOPT_RETURNTRANSFER, true);
@@ -120,13 +112,22 @@
                         echo str_replace(array_keys($remplazar), array_values($remplazar), $fecha);
                         echo "</h3>";
                         echo "<br><h3>Este siendo: $capitulo->episode</h3>";
-                        echo "<a href='$capitulo->url' target='_blank'>Más información</a>";
-                      }  
+                        echo "<br><h3>Personajes que aparecen en este capitulo:</h3>";
+                        echo "<br><br>";
+                        echo "
+                          <form action='MostrarPersonaje.php' method='get'>
+                          <button class='button' type='submit' name='id' value={$capitulo->id}>Mostrar</button>
+                          </form>"; 
+                      }
+                      echo "<br><br>";
+                      // formulario
+                      echo "
+                      <form action='Capitulos.php' method='get'>
+                      <button class='button' type='submit' name='pag' value={$id}>Atras</button>
+                      <button class='button' type='submit' name='pagina' value={$id}>Siguiente</button>
+                      </form>";  
                     ?>          
-                </p>
-            </div>
-            </div>
-        </section>
     </main>
+    <script src="Elementos/main.js"></script>
   </body>
 </html>
