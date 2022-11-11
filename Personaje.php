@@ -134,7 +134,7 @@
                       echo"</div>";
                        // formulario
                     echo "
-                    <form action='Personajes.php' method='get'>
+                    <form action='Personaje.php' method='get'>
                       <button class='button' type='submit' name='pag' value={$id}>Atras</button>
                       <button class='button' type='submit' name='pagina' value={$id}>Siguiente</button>
                     </form>";
